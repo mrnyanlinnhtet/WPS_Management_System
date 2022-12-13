@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ultron</groupId>
+  <artifactId>00_wps_management</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  
+  <dependencies>
+  
+  
+  </dependencies>
+  
+  <build>
+  <plugins>
+  
+  <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.10.1</version>
+  <configuration>
+  <target>17</target>
+  <source>17</source>
+  </configuration>
+  </plugin>
+  
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>3.3.2</version>
+    <configuration>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    </configuration>
+   </plugin>
+   
+   <plugin>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-maven-plugin</artifactId>
+    <version>10.0.7</version>
+    <configuration>
+    <scan>1</scan>
+    </configuration>
+   </plugin>
+  </plugins>
+  </build>
+</project>
