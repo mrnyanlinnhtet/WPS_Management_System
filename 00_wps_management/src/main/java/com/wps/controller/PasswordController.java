@@ -21,7 +21,7 @@ public class PasswordController {
 	
 	@GetMapping
 	public String index(Optional<String>name,Optional<String>username) {
-		return "";
+		return "password";
 	}
 	
 	@GetMapping("edit")

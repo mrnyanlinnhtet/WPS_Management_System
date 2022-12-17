@@ -26,7 +26,7 @@ public class WebsiteController {
 	
 	@GetMapping
 	public String index(Optional<String>name,Optional<String>categoryName) {
-		return "";
+		return "website";
 	}
 	
 	@GetMapping("edit")
