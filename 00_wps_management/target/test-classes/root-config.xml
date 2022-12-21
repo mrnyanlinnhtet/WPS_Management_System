@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-	<context:component-scan base-package="com.wps.model.service"></context:component-scan>
+	<context:component-scan base-package="com.wps.model"></context:component-scan>
 	
 	
 	<bean id="dataSource"

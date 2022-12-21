@@ -1,0 +1,1 @@
+INSERT INTO website_categories(name)VALUES('Foods'),('Electronics');
