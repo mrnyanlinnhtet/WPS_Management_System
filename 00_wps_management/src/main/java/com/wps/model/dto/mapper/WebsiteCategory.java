@@ -1,4 +1,4 @@
-package com.wps.model.dto.output;
+package com.wps.model.dto.mapper;
 
 import lombok.Getter;
 import lombok.Setter;

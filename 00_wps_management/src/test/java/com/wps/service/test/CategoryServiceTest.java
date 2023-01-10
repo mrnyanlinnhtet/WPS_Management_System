@@ -12,7 +12,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.wps.model.dto.input.CategoryForm;
-import com.wps.model.dto.output.WebsiteCategory;
+import com.wps.model.dto.mapper.WebsiteCategory;
 import com.wps.model.service.CategoryService;
 
 @SpringJUnitConfig(locations = "/root-config.xml")

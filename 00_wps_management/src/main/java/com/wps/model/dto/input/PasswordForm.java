@@ -10,7 +10,9 @@ public class PasswordForm {
 	public String name;
 	public String username;
 	public String password;
+	public String passwordCategory;
 	public String description;
+	
 	
 	public PasswordForm() {
 		

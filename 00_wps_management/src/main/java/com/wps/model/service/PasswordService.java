@@ -11,7 +11,7 @@ import com.wps.model.dto.output.PasswordListVO;
 @Service
 public class PasswordService {
 
-	public List<PasswordListVO>search(Optional<String>name,Optional<String>username){
+	public List<PasswordListVO>search(Optional<String>name,Optional<String>username,Optional<String>category){
 		return null;
 	}
 	

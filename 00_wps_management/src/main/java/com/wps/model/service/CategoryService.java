@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wps.model.dto.input.CategoryForm;
-import com.wps.model.dto.output.WebsiteCategory;
+import com.wps.model.dto.mapper.WebsiteCategory;
 
 @Service
 public class CategoryService {
@@ -49,12 +49,12 @@ public class CategoryService {
 	}
 
 	// Delete Process
+	@Transactional
 	public int deleteCategory(int id) {
 		final String DELETE_SQL = "DELETE FROM website_categories WHERE id = :id";
 
 		var param = new HashMap<String, Object>();
 		param.put("id", id);
-
 		return template.update(DELETE_SQL, param);
 	}
 
@@ -64,7 +64,6 @@ public class CategoryService {
 		var params = new HashMap<String, Object>();
 		params.put("name", form.getName());
 		params.put("id", form.getId());
-
 		return template.update(UPDATE_SQL, params);
 	}
 

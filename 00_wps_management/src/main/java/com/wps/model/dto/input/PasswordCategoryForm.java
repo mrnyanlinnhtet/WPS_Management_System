@@ -5,24 +5,21 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryForm {
-
+public class PasswordCategoryForm {
+	
 	private int id;
 	private String name;
 	
-	
-	public CategoryForm() {
+	public PasswordCategoryForm() {
 		
 	}
 
-	public CategoryForm(int id, String name) {
+	public PasswordCategoryForm(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
+	
+	
 
-
-	
-	
-	
 }
