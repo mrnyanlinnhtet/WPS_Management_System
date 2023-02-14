@@ -67,6 +67,7 @@ public class CategoryService {
 		return template.update(UPDATE_SQL, params);
 	}
 
+	
 	private int saveCategory(CategoryForm form) {
 		var param = new HashMap<String, Object>();
 		param.put("name", form.getName());

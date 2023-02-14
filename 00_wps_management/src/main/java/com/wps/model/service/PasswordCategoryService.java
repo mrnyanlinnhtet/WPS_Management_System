@@ -52,7 +52,7 @@ public class PasswordCategoryService {
 	}
 
 	private int updateCategory(PasswordCategoryForm form) {
-		final String UPDATE_CATEGORY = "UPDATE passowrd_categories SET name = :name WHERE id = :id";
+		final String UPDATE_CATEGORY = "UPDATE password_categories SET name = :name WHERE id = :id";
 		var params = new HashMap<String, Object>();
 		params.put("name", form.getName());
 		params.put("id", form.getId());
@@ -66,6 +66,5 @@ public class PasswordCategoryService {
 		return template.update(DELETE_CATEGORY, param);
 	}
 
-	// TODO:To Testing This Service Methods
 
 }
