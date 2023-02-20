@@ -1,4 +1,5 @@
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE website_categories;
 TRUNCATE TABLE password_categories;
+TRUNCATE TABLE passwords;
 SET FOREIGN_KEY_CHECKS = 1;

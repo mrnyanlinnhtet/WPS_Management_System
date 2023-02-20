@@ -1,6 +1,7 @@
 package com.wps.service.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -45,7 +46,28 @@ public class PasswordCategoryServiceTest {
 		assertEquals(count, result);
 
 	}
-	
-	
+
+	@Order(3)
+	@Sql(scripts = { "/truncate.sql", "/insert.sql" })
+	@ParameterizedTest
+	@CsvSource({ "2,Social Media" })
+	void find_category_by_id_test(int id, String category) {
+
+		var result = service.findCateogryById(id);
+
+		assertNotNull(result);
+		assertEquals(category, result.getName());
+	}
+
+	@Order(4)
+	@Sql(scripts = { "/truncate.sql", "/insert.sql" })
+	@ParameterizedTest
+	@CsvSource({ "1,1" })
+	void delete_by_id(int id, int effectiveCount) {
+
+		var result = service.delete(id);
+
+		assertEquals(effectiveCount, result);
+	}
 
 }
