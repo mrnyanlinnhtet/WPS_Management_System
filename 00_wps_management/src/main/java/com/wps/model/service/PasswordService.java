@@ -44,17 +44,17 @@ public class PasswordService {
 
 		and.append(name.filter(StringUtils::hasLength).map(a -> {
 			params.put("name", a.toLowerCase().concat("%"));
-			return " AND p.name LIKE :name";
+			return " AND LOWER(p.name) LIKE :name";
 		}).orElse(""));
 
 		and.append(username.filter(StringUtils::hasLength).map(a -> {
 			params.put("username", a.toLowerCase().concat("%"));
-			return " AND p.username LIKE :username";
+			return " AND LOWER(p.username) LIKE :username";
 		}).orElse(""));
 
 		and.append(category.filter(StringUtils::hasLength).map(a -> {
-			params.put("category", a.concat("%"));
-			return " AND c.name LIKE :category";
+			params.put("category", a.toLowerCase().concat("%"));
+			return " AND LOWER(c.name) LIKE :category";
 		}).orElse(""));
 
 		return template.query(and.toString(), params, mapper);
@@ -77,7 +77,42 @@ public class PasswordService {
 	}
 
 	public int savePassword(PasswordForm form) {
-		return 0;
+
+		if (form.getId() == 0) {
+			return saveData(form);
+		}
+		return updateData(form);
 	}
+
+	private int updateData(PasswordForm form) {
+		final String UPDATE = """
+				UPDATE passwords SET name=:name,username=:username,password=:password,description=:description,
+				password_categories_id =:categories_id
+				WHERE id=:id
+				""";
+
+		var params = new HashMap<String, Object>();
+		params.put("id", form.getId());
+		params.put("name", form.getName());
+		params.put("username", form.getUsername());
+		params.put("password", form.getPassword());
+		params.put("description", form.getDescription());
+		params.put("categories_id", form.getPasswordCategoryId());
+
+		return template.update(UPDATE, params);
+	}
+
+	private int saveData(PasswordForm form) {
+		var param = new HashMap<String, Object>();
+		param.put("id", form.getId());
+		param.put("name", form.getName());
+		param.put("username", form.getUsername());
+		param.put("password", form.getPassword());
+		param.put("description", form.getDescription());
+		param.put("password_categories_id", form.getPasswordCategoryId());
+		return insert.executeAndReturnKey(param).intValue();
+	}
+
+	// TODO:Check Equal Ignore Case Method in Service
 
 }
